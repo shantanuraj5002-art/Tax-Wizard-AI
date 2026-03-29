@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "userProfiles": {
+      "title": "User Profile",
+      "description": "Stores user financial profile and tax preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "salary": { "type": "number" },
+        "investments": { "type": "object" },
+        "regimePreference": { "type": "string", "enum": ["old", "new"] },
+        "riskProfile": { "type": "string", "enum": ["conservative", "moderate", "aggressive"] }
+      },
+      "required": ["uid"]
+    },
+    "taxScans": {
+      "title": "Tax Scan",
+      "description": "Stores results of Form 16 scans",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "extractedData": { "type": "object" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["uid", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/userProfiles/{uid}": {
+      "schema": "userProfiles",
+      "description": "User profile documents"
+    },
+    "/taxScans/{scanId}": {
+      "schema": "taxScans",
+      "description": "History of tax scans"
+    }
+  }
+}

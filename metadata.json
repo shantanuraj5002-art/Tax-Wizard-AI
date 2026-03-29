@@ -1,0 +1,7 @@
+{
+  "name": "Tax Wizard AI",
+  "description": "AI-powered personal finance mentor for Indian taxpayers. Upload Form 16, compare tax regimes, and get personalized investment recommendations.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
